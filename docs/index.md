@@ -277,8 +277,9 @@ DANGERS
 
 ### 4.2 Prompt 的生成器
 
-在上文中，我们自创了一种 Prompt 的表达格式，用“:”加角色名称表示消息的发送者，并且支持多行文本，这非常适合描述多角色 Prompt。因此，我们首先需要一个 Prompt 模板加载器，它可以将模板文件加载为 Prompt 模板，然后再将本次用户从命令行真正输入的内容转换为最后一条 message，这就是 Prompt 生成器的作用。
+在上文中，我们自创了一种 Prompt 的表达格式，用“:”加角色名称表示消息的发送者，并且支持多行文本，这非常适合描述多角色 Prompt。因此，我们首先需要一个 Prompt 模板加载器，它可以将模板文件加载为 Prompt 模板，然后再将本次用户从命令行真正输入的内容转换为最后一条 message，这就是 Prompt 生成器的作用。同时模板中可能还包含这一些可替换的变量，例如命令行可能根据操作系统的不同而有差异性，因此在模板中我们可以用 `${OS}` 表示制定的操作系统。
 > 详见 https://github.com/MagicCube/cli-gpt/blob/main/src/prompt/index.ts 和 https://github.com/MagicCube/cli-gpt/blob/main/src/prompt/template.ts
+> 模板详见 https://github.com/MagicCube/cli-gpt/blob/main/prompt-template/default.md
 
 
 ### 4.3 翻译器
@@ -292,6 +293,11 @@ DANGERS
 本例中文通过 [oclif](https://github.com/oclif/oclif) 库来实现 CLI 界面，它提供了一个非常方便的 CLI 框架，我们只需要专注于 Command 业务逻辑的实现。oclif 还可以帮我们自动发布为全局命令，这样我们就可以在任何地方使用我们的命令行工具了。
 > 详见 https://github.com/MagicCube/cli-gpt/blob/main/src/ui/index.ts
 
+此外，我们不希望将 OpenAI 的 Secret Key 提交到 Github 上。为此，你需要在项目的根目录下新建一个 `.env` 文件，内容如下：
+
+```bash
+OPENAI_API_KEY="sk-your-secret-key"
+```
 
 受限于篇幅，这里不再展开介绍每个模块的实现细节，代码都非常好理解，你可以通过点击对应的代码链接查看源码，也可以在 Github Issues 或文章下方留言。
 
