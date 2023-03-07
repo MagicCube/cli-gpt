@@ -1,0 +1,69 @@
+{
+  "name": "cli-gpt",
+  "version": "0.0.0",
+  "description": "Translate human language to command line using ChatGPT.",
+  "author": "Henry Li <henry1943@163.com>",
+  "bin": {
+    "cgpt": "./bin/run"
+  },
+  "homepage": "https://github.com/MagicCube/cli-gpt",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "https://github.com/MagicCube/MagicCube/cli-gpt",
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "dependencies": {
+    "@oclif/core": "^2",
+    "@oclif/plugin-help": "^5",
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/node": "^16.18.14",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "@vue/compiler-sfc": "^3.2.47",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "oclif": "^3",
+    "prettier": "^2.8.4",
+    "shx": "^0.3.3",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5"
+  },
+  "oclif": {
+    "bin": "cgpt",
+    "dirname": "cgpt",
+    "commands": "./dist/ui",
+    "default": ".",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "dev": "./bin/dev",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "version": "oclif readme && git add README.md"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "bugs": "https://github.com/MagicCube/cli-gpt/issues",
+  "keywords": [
+    "chatgpt",
+    "command line",
+    "gpt",
+    "openai"
+  ],
+  "types": "dist/index.d.ts"
+}
