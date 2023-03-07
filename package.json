@@ -1,6 +1,6 @@
 {
-  "name": "cli-gpt",
-  "version": "0.0.0",
+  "name": "magiccube-cli-gpt",
+  "version": "0.1.0",
   "description": "Translate human language to command line using ChatGPT.",
   "author": "Henry Li <henry1943@163.com>",
   "bin": {
@@ -13,6 +13,7 @@
   "files": [
     "/bin",
     "/dist",
+    "/prompt-template",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
