@@ -7,6 +7,8 @@ Translate human language to command line using ChatGPT.
 ```sh-session
 $ npm install -g magiccube-cli-gpt
 
+$ export OPENAI_API_KEY="***your-openai-api-key***"
+
 $ cgpt clone react from github and switch to a new branch named feature/gpt
 Translating your words into command line...... done
 
