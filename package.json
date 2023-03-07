@@ -1,6 +1,6 @@
 {
   "name": "magiccube-cli-gpt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Translate human language to command line using ChatGPT.",
   "author": "Henry Li <henry1943@163.com>",
   "bin": {
