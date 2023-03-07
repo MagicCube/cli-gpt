@@ -316,7 +316,7 @@ OPENAI_API_KEY="sk-your-secret-key"
 
 “人机协同”的时代真的已经到来了吗？
 
-![](images/fin.png)
+![](images/fin.webp)
 
 > “真的已经到”之后的文字为 Copilot 生成，但是笔者仍然保留了最后一句话的权利。
 
