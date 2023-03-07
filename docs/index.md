@@ -269,13 +269,29 @@ DANGERS
 
 我们可以将整个项目的架构分为 4 个小模块，他们分别是：
 
-1. **API 的二次封装**：将 OpenAI SDK 封装成一个更加易用的 API，输入为多个 Messages，输出则直接是纯文本结果（包含 UNKNOWN 及 DANGEROUS 也在结果内）。
+### API 的二次封装
 
-2. **Prompt 的生成器**：在上文中，我们自创了一种 Prompt 的表达格式，用“:”加角色名称表示消息的发送者，并且支持多行文本，这非常适合描述多角色 Prompt。因此，我们首先需要一个 Prompt 模板加载器，它可以将模板文件加载为 Prompt 模板，然后再将本次用户从命令行真正输入的内容转换为最后一条 message，这就是 Prompt 生成器的作用。
+将 OpenAI SDK 封装成一个更加易用的 API，输入为多个 Messages，输出则直接是纯文本结果（包含 UNKNOWN 及 DANGEROUS 也在结果内）。
+> 详见 https://github.com/MagicCube/cli-gpt/blob/main/src/open-ai/index.ts
 
-3. **翻译器**：翻译器是 Facade 层，它将上述两个模块的 API 组合起来，将用户的输入通过生成器转化为最终的 Prompt Messages，并且将其通过 API 客户端发送给 OpenAI，最后将结果返回。
 
-4. **CLI 展现层**：本例中文通过 [oclif](https://github.com/oclif/oclif) 库来实现 CLI 界面，它提供了一个非常方便的 CLI 框架，我们只需要专注于 Command 业务逻辑的实现。oclif 还可以帮我们自动发布为全局命令，这样我们就可以在任何地方使用我们的命令行工具了。
+### Prompt 的生成器
+
+在上文中，我们自创了一种 Prompt 的表达格式，用“:”加角色名称表示消息的发送者，并且支持多行文本，这非常适合描述多角色 Prompt。因此，我们首先需要一个 Prompt 模板加载器，它可以将模板文件加载为 Prompt 模板，然后再将本次用户从命令行真正输入的内容转换为最后一条 message，这就是 Prompt 生成器的作用。
+> 详见 https://github.com/MagicCube/cli-gpt/blob/main/src/prompt/index.ts 和 https://github.com/MagicCube/cli-gpt/blob/main/src/prompt/template.ts
+
+
+### 翻译器
+
+翻译器是 Facade 层，它将上述两个模块的 API 组合起来，将用户的输入通过生成器转化为最终的 Prompt Messages，并且将其通过 API 客户端发送给 OpenAI，最后将结果返回。
+> 详见 https://github.com/MagicCube/cli-gpt/blob/main/src/translator/index.ts
+
+
+### CLI 展现层
+
+本例中文通过 [oclif](https://github.com/oclif/oclif) 库来实现 CLI 界面，它提供了一个非常方便的 CLI 框架，我们只需要专注于 Command 业务逻辑的实现。oclif 还可以帮我们自动发布为全局命令，这样我们就可以在任何地方使用我们的命令行工具了。
+> 详见 https://github.com/MagicCube/cli-gpt/blob/main/src/ui/index.ts
+
 
 受限于篇幅，这里不再展开介绍每个模块的实现细节，代码都非常好理解，你可以通过点击对应的代码链接查看源码，也可以在 Github Issues 或文章下方留言。
 
