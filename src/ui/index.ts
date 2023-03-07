@@ -1,7 +1,7 @@
 import { Command, ux } from '@oclif/core';
 
 import { generatePromptMessages } from '../prompt';
-import { translate } from '../translation';
+import { translate } from '../translator';
 import type { CommandLine } from '../types';
 
 export default class DefaultCommand extends Command {
