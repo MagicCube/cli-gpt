@@ -15,7 +15,7 @@ export default class DefaultCommand extends Command {
       ux.action.start('Translating your words into command line...');
       command = await translate(userInput);
       ux.action.stop();
-      this.log(`\x1b[34m\n${command.content}\n\x1b[0m`);
+      this.log(`\x1b[36m\n${command.content}\n\x1b[0m`);
       if (command.isDangerous) {
         ux.log('\x1b[41m CAUTION \x1b[0m\x1b[31m This command is dangerous!\x1b[0m');
       }
