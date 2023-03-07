@@ -14,7 +14,7 @@
 
 废话不多说，先上 DEMO 为敬：
 
-[TODO: image]
+![](images/animation.gif)
 
 
 ## 1. 准备工作

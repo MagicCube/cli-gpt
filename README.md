@@ -27,6 +27,8 @@ rm -rf *
 CAUTION: This command is dangerous!
 ```
 
+![](docs/images/animation.gif)
+
 ## Documents
 
 请参考[中文文档](docs/index.md)
